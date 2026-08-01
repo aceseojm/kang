@@ -20,6 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${notoSerifKR.variable} h-full antialiased`}>
+      <head>
+        <meta
+          name="naver-site-verification"
+          content="d37841ba4d97065650346b89910b601191582f0d"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
