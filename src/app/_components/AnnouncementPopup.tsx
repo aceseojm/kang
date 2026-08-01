@@ -40,7 +40,7 @@ export function AnnouncementPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center px-6"
       role="dialog"
       aria-modal="true"
       onClick={close}
