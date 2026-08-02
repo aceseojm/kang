@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AnnouncementPopup } from "./_components/AnnouncementPopup";
 import { Quadrant } from "./_components/Quadrant";
 import { SiteNav } from "./_components/SiteNav";
 import { SiteFooter } from "./_components/SiteFooter";
@@ -12,7 +11,6 @@ export default function Home() {
 
   return (
     <main className="bg-[var(--color-ivory-end)] text-[var(--color-ink)]">
-      <AnnouncementPopup />
       <section className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-6 text-center">
         <video
           autoPlay

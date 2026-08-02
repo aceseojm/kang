@@ -76,6 +76,6 @@ export const debut = {
 };
 
 export const relatedSites = [
-  { name: "서진레벨", url: "https://www.seojin.biz/sj/user/main.php" },
-  { name: "와이엠케이", url: "https://www.the-ymk.com" },
+  { name: "(주)서진인스텍", url: "https://www.seojin.biz/sj/user/main.php" },
+  { name: "(주)와이엠케이", url: "https://www.the-ymk.com" },
 ];
