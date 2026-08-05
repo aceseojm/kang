@@ -105,6 +105,21 @@ export default function AboutPage() {
             </TimelineRow>
           ))}
         </TimelineSection>
+        <TimelineSection title="블로그">
+          <TimelineRow date="소금창고">
+            <p className="leading-[2] text-[15px] md:text-base">
+              염창(鹽倉) — 소금을 갈무리해두는 창고라는 뜻의 호입니다. 이 블로그는 시인이 오랜 세월 마음에 담아온 글과 삶의 지혜, 여행의 기록들을 정성껏 갈무리해온 공간입니다. 시간이 지나야 제맛을 내는 소금처럼, 변하지 않는 것들의 곳간 소금창고를 만나보세요.
+            </p>
+            <a
+              href="https://blog.naver.com/duackd_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block font-semibold underline text-[var(--color-ink)] transition-colors hover:text-[var(--color-autumn)]"
+            >
+              소금창고 ↗
+            </a>
+          </TimelineRow>
+        </TimelineSection>
       </div>
 
       <footer className="mt-16 flex flex-wrap gap-x-6 gap-y-2 border-t border-[color-mix(in_srgb,var(--color-ink)_10%,transparent)] pt-8 text-sm tracking-wide text-[var(--color-taupe)]">
