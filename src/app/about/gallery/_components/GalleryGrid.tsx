@@ -4,23 +4,32 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import type { GalleryCategory } from "@/lib/gallery";
 
-type GalleryImage = { src: string; alt: string; category: GalleryCategory };
+type GalleryImage = {
+  src: string;
+  alt: string;
+  category: GalleryCategory;
+  hasPommi: boolean;
+};
 
-const filters: { label: string; value: GalleryCategory | "전체" }[] = [
+type FilterValue = GalleryCategory | "전체" | "뽀미";
+
+const filters: { label: string; value: FilterValue }[] = [
   { label: "전체", value: "전체" },
   { label: "꽃", value: "꽃" },
   { label: "열매", value: "열매" },
   { label: "풍경", value: "풍경" },
+  { label: "뽀미", value: "뽀미" },
 ];
 
 export function GalleryGrid({ images }: { images: GalleryImage[] }) {
-  const [filter, setFilter] = useState<GalleryCategory | "전체">("전체");
+  const [filter, setFilter] = useState<FilterValue>("전체");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const filtered = useMemo(
-    () => (filter === "전체" ? images : images.filter((img) => img.category === filter)),
-    [images, filter],
-  );
+  const filtered = useMemo(() => {
+    if (filter === "전체") return images;
+    if (filter === "뽀미") return images.filter((img) => img.hasPommi);
+    return images.filter((img) => img.category === filter);
+  }, [images, filter]);
 
   useEffect(() => {
     if (activeIndex === null) return;
