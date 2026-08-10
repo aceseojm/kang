@@ -26,8 +26,8 @@ export default function GalleryPage() {
 
       <p className="mt-6 max-w-xl text-[15px] leading-[2] text-[var(--color-taupe)] md:text-base">
         시인은 매주 반려견 뽀미와 함께 한강 부근을 걸으며, 발걸음이 머무는 자리마다
-        스치는 계절의 풍경을 사진으로 옮겨 담는다. 그렇게 쌓인 산책의 기록들을
-        이곳에 모아 둔다.
+        스치는 계절의 풍경을 사진으로 옮겨 담습니다. 그렇게 쌓인 산책의 기록들을
+        이곳에 모아 둡니다.
       </p>
 
       <div className="mt-12">
