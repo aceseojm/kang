@@ -10,7 +10,30 @@ const notoSerifKR = Noto_Serif_KR({
 
 export const metadata: Metadata = {
   title: "鹽倉 姜吉遠 | 나의 四季",
-  description: "鹽倉 강길원의 첫 시집 《나의 四季》 — 사계로 읽는 시",
+  description:
+    "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+  keywords: [
+    "강길원",
+    "염창 강길원",
+    "시인 강길원",
+    "강길원 시인",
+    "서진인스텍",
+    "와이엠케이",
+    "소금창고",
+    "나의 四季",
+  ],
+  openGraph: {
+    title: "鹽倉 姜吉遠 | 나의 四季",
+    description:
+      "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "鹽倉 姜吉遠 | 나의 四季",
+    description:
+      "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+  },
 };
 
 export default function RootLayout({
