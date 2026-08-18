@@ -98,4 +98,4 @@ export const galleryImages = Array.from({ length: 79 }, (_, i) => {
     category: categories[n],
     hasPommi: pommiPhotos.has(n),
   };
-});
+}).reverse();
