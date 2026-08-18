@@ -50,9 +50,23 @@ export default function NoticePage() {
                   {notice.date}
                 </p>
                 <h2 className="mt-2 text-base md:text-lg">{notice.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink)]">
+                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-[var(--color-ink)]">
                   {notice.body}
                 </p>
+                {notice.link ? (
+                  <a
+                    href={notice.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 border px-4 py-2 text-xs tracking-widest transition-colors hover:text-[var(--color-cream,#fff)]"
+                    style={{
+                      borderColor: "var(--color-autumn)",
+                      color: "var(--color-autumn)",
+                    }}
+                  >
+                    {notice.link.label} →
+                  </a>
+                ) : null}
               </li>
             ))}
           </ul>
