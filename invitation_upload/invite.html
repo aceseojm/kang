@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>《四季로 읽는 詩》 출판기념회 초대장 · 강길원</title>
+<title>강길원 《사계로 읽는 시》 출판기념회 초대장</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="《四季로 읽는 詩》 출판기념회 초대장">
+<meta property="og:title" content="강길원 《사계로 읽는 시》 출판기념회 초대장">
 <meta property="og:description" content="2026. 9. 16.(수) 오후 3시 30분 · 역삼역 메타아트홀 — 저자 강길원 배상">
 <meta property="og:image" content="https://www.kanggilwon.com/invitation_upload/invite.png">
 <meta property="og:image:secure_url" content="https://www.kanggilwon.com/invitation_upload/invite.png">
@@ -14,7 +14,7 @@
 <meta property="og:image:height" content="2439">
 <meta property="og:url" content="https://www.kanggilwon.com/invitation_upload/invite.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="《四季로 읽는 詩》 출판기념회 초대장">
+<meta name="twitter:title" content="강길원 《사계로 읽는 시》 출판기념회 초대장">
 <meta name="twitter:description" content="2026. 9. 16.(수) 오후 3시 30분 · 역삼역 메타아트홀 — 저자 강길원 배상">
 <meta name="twitter:image" content="https://www.kanggilwon.com/invitation_upload/invite.png">
 <script src="./support.js"></script>
@@ -124,15 +124,27 @@
       <div style="position: absolute; inset: 0; background: rgba(4,7,14,0.85); display: flex; align-items: center; justify-content: center; padding: 1.2em; z-index: 5;">
         <div class="gold-frame" style="width: 100%; max-width: 21em; padding: 1.4em 1.2em 0.9em; display: flex; flex-direction: column; gap: 0.5em; text-align: center;">
           <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.05em; letter-spacing: 0.3em; text-indent: 0.3em; color: #e8d69f;">RSVP</div>
-          <div style="font-size: 0.62em; line-height: 1.7; color: #bfb28e;">참석 여부와 성함 · 연락처를 남겨주세요.</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.45em;">
-            <button type="button" onClick="{{ pickYes }}" style="{{ yesStyle }}">참석</button>
-            <button type="button" onClick="{{ pickNo }}" style="{{ noStyle }}">불참석</button>
-          </div>
-          <input type="text" value="{{ name }}" onChange="{{ onName }}" placeholder="성함" style="{{ inputStyle }}" />
-          <input type="tel" value="{{ phone }}" onChange="{{ onPhone }}" placeholder="연락처" style="{{ inputStyle }}" />
-          <button type="button" onClick="{{ submit }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
-          <div style="font-size: 0.6em; line-height: 1.5; color: #a99c78; min-height: 1.4em;">{{ formNote }}</div>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 0.6em;">
+              <div style="font-size: 0.62em; line-height: 1.7; color: #bfb28e;">참석 여부와 성함 · 연락처를 남겨주세요.</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.45em;">
+                <button type="button" onClick="{{ pickYes }}" style="{{ yesStyle }}">참석</button>
+                <button type="button" onClick="{{ pickNo }}" style="{{ noStyle }}">불참석</button>
+              </div>
+              <input type="text" value="{{ name }}" onChange="{{ onName }}" placeholder="성함" style="{{ inputStyle }}" />
+              <input type="tel" value="{{ phone }}" onChange="{{ onPhone }}" placeholder="연락처" style="{{ inputStyle }}" />
+              <button type="button" onClick="{{ submit }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
+              <div style="font-size: 0.6em; line-height: 1.5; color: #a99c78; min-height: 1.4em;">{{ formNote }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.7em; padding: 0.6em 0 0.2em;">
+              <div style="width: 2.4em; height: 2.4em; border: 1px solid #d4af47; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9em; color: #d4af47;">✓</div>
+              <div style="font-family: 'Nanum Myeongjo', serif; font-size: 0.82em; line-height: 1.8; color: #f0e4c2;">{{ sentTitle }}</div>
+              <div style="font-size: 0.62em; line-height: 1.7; color: #bfb28e;">{{ sentDetail }}</div>
+              <button type="button" onClick="{{ resetForm }}" style="{{ closeStyle }}">다시 입력</button>
+            </div>
+          </sc-if>
           <button type="button" onClick="{{ toggleOpen }}" style="{{ closeStyle }}">닫기</button>
         </div>
       </div>
@@ -270,7 +282,13 @@ class Component extends DCLogic {
   }
   renderVals() {
     const s = this.state;
+    const answerLabel = s.rsvp === 'yes' ? '참석' : '불참석';
     return {
+      sent: !!s.sent,
+      notSent: !s.sent,
+      sentTitle: ((s.name || '').trim() ? (s.name || '').trim() + '님, ' : '') + '회신이 전송되었습니다.',
+      sentDetail: answerLabel + '으로 전해드렸습니다. 감사합니다.',
+      resetForm: () => this.setState({ sent: false, err: '' }),
       open: s.open,
       toggleOpen: () => this.setState({ open: !s.open, err: '' }),
       rsvpLinkStyle: {
