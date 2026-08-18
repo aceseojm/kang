@@ -36,7 +36,7 @@ export default function NoticePage() {
             아직 등록된 공지가 없습니다.
           </p>
         ) : (
-          <ul className="flex flex-col divide-y divide-[color-mix(in_srgb,var(--color-ink)_10%,transparent)]">
+          <ul className="flex flex-col gap-8">
             {notices.map((notice) => (
               <li
                 key={notice.slug}
