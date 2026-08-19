@@ -116,11 +116,23 @@
     color: #8f8570;
   }
   .hidden { display: none !important; }
+  .stage {
+    width: min(100vw, 56.25vh);
+    height: min(100vh, 177.8vw);
+    font-size: calc(min(100vw, 56.25vh) / 24);
+  }
+  @supports (height: 100dvh) {
+    .stage {
+      width: min(100vw, 56.25dvh);
+      height: min(100dvh, 177.8vw);
+      font-size: calc(min(100vw, 56.25dvh) / 24);
+    }
+  }
 </style>
 </head>
 <body>
 <div style="position: fixed; inset: 0; background: #04070e; display: flex; align-items: center; justify-content: center; font-family: 'Gowun Batang', serif;">
-  <div style="position: relative; width: min(100vw, 56.25dvh); height: min(100dvh, 177.8vw); font-size: calc(min(100vw, 56.25dvh) / 24); overflow: hidden; animation: riseIn 700ms ease-out both; background: linear-gradient(90deg, #04070e 0%, #060b16 2.5%, #0b1730 2.5%, #0d1c38 50%, #0b1730 97.5%, #060b16 97.5%, #04070e 100%);">
+  <div class="stage" style="position: relative; overflow: hidden; animation: riseIn 700ms ease-out both; background: linear-gradient(90deg, #04070e 0%, #060b16 2.5%, #0b1730 2.5%, #0d1c38 50%, #0b1730 97.5%, #060b16 97.5%, #04070e 100%);">
 
     <div style="position: absolute; inset: 0; background-image: url('./assets/rose-strip.svg'); background-repeat: repeat; background-size: 55% auto; background-position: center bottom; opacity: 0.1; pointer-events: none;"></div>
 
