@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사계로 읽는 시 — 출판기념회</title>
+<meta name="description" content="鹽倉 강길원 시인 첫 시집 《사계로 읽는 시》 출판기념회. 2026년 9월 16일, 메타아트홀.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="鹽倉 강길원 시인 첫 시집 《사계로 읽는 시》 출판기념회">
-<meta property="og:description" content="2026년 9월 16일(수) 오후 3:30, 메타아트홀(제주은행 4층)에서 열리는 출간 기념 낭독 및 축하연에 초대합니다.">
-<meta property="og:image" content="https://kanggilwon.com/book-event-og.jpg">
-<meta property="og:url" content="https://kanggilwon.com/book-event.html">
+<meta property="og:title" content="사계로 읽는 시 — 출판기념회">
+<meta property="og:description" content="鹽倉 강길원 시인 첫 시집 출판기념회에 초대합니다. 2026. 9. 16 (수) · 메타아트홀">
+<meta property="og:image" content="https://www.kanggilwon.com/assets/book-event-og.jpg">
+<meta property="og:url" content="https://www.kanggilwon.com/book-event.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="鹽倉 강길원 시인 첫 시집 《사계로 읽는 시》 출판기념회">
-<meta name="twitter:description" content="2026년 9월 16일(수) 오후 3:30, 메타아트홀(제주은행 4층)에서 열리는 출간 기념 낭독 및 축하연에 초대합니다.">
-<meta name="twitter:image" content="https://kanggilwon.com/book-event-og.jpg">
+<meta name="twitter:title" content="사계로 읽는 시 — 출판기념회">
+<meta name="twitter:description" content="鹽倉 강길원 시인 첫 시집 출판기념회에 초대합니다. 2026. 9. 16 (수) · 메타아트홀">
+<meta name="twitter:image" content="https://www.kanggilwon.com/assets/book-event-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +27,8 @@
     --seal-soft:#b6584a;
     --mist:#aab8c2;
     --gold:#a9884f;
+    --brown:#6b4a34;
+    --brown-soft:#82603f;
     --line: rgba(43,42,40,0.16);
     --line-soft: rgba(43,42,40,0.08);
     --serif-display: 'Song Myung', 'Noto Serif KR', serif;
@@ -124,15 +127,16 @@
     .hero-title .hangul{letter-spacing:0.4em;}
   }
   .hero-hanja{
-    font-size:17px;
-    letter-spacing:0.5em;
+    font-size:23px;
+    letter-spacing:0.42em;
     color:var(--ink-soft);
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
   .hero-sub{
     font-size:18px;
     color:var(--ink-soft);
     letter-spacing:0.08em;
+    line-height:1.7;
     margin-bottom:56px;
   }
   .hero-rule{
@@ -227,6 +231,15 @@
     grid-template-columns:auto 1fr;
     gap:52px;
     align-items:start;
+  }
+  @media (max-width:600px){
+    .poet-grid{
+      grid-template-columns:1fr;
+      justify-items:center;
+      text-align:center;
+      gap:24px;
+    }
+    .poet-bio{text-align:left;}
   }
   .seal{
     width:88px;
@@ -424,8 +437,8 @@
   .btn{
     display:inline-block;
     padding:20px 60px;
-    background:var(--ink);
-    border:1px solid var(--ink);
+    background:var(--brown);
+    border:1px solid var(--brown);
     color:var(--paper);
     text-decoration:none;
     font-family:var(--serif-body);
@@ -434,7 +447,7 @@
     font-weight:400;
     transition:background 0.5s ease, border-color 0.5s ease, letter-spacing 0.5s ease;
   }
-  .btn:hover{background:var(--seal); border-color:var(--seal); letter-spacing:0.4em;}
+  .btn:hover{background:var(--brown-soft); border-color:var(--brown-soft); letter-spacing:0.4em;}
   .site-link{
     display:block;
     margin-top:24px;
@@ -479,7 +492,7 @@
       <span class="hanja">四季</span><span class="hangul">로 읽는</span><span class="hanja">詩</span>
     </h1>
   </div>
-  <div class="hero-sub reveal">鹽倉 강길원 시인 첫 시집 출간을 함께 축하해 주시기 바랍니다</div>
+  <div class="hero-sub reveal">鹽倉 姜吉遠 시인, 첫 시집 출간을<br>함께 축하해 주시기 바랍니다.</div>
   <div class="hero-rule reveal"></div>
   <div class="hero-meta reveal">
     <strong>2026년 9월 16일 (수)</strong>

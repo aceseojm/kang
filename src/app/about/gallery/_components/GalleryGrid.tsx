@@ -26,9 +26,23 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const filtered = useMemo(() => {
-    if (filter === "전체") return images;
-    if (filter === "뽀미") return images.filter((img) => img.hasPommi);
-    return images.filter((img) => img.category === filter);
+    let result: GalleryImage[];
+    
+    if (filter === "전체") {
+      result = images;
+    } else if (filter === "뽀미") {
+      result = images.filter((img) => img.hasPommi);
+    } else {
+      result = images.filter((img) => img.category === filter);
+    }
+
+    // 같은 카테고리 내에서 꽃이 열매보다 상위에 오도록 정렬
+    if (filter === "전체") {
+      const categoryOrder: Record<GalleryCategory, number> = { "꽃": 0, "풍경": 1, "열매": 2 };
+      result = result.sort((a, b) => categoryOrder[a.category] - categoryOrder[b.category]);
+    }
+
+    return result;
   }, [images, filter]);
 
   useEffect(() => {
