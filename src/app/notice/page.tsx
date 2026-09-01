@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notices } from "@/lib/notices";
 import { ContactForm } from "./_components/ContactForm";
@@ -53,6 +54,17 @@ export default function NoticePage() {
                 <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-[var(--color-ink)]">
                   {notice.body}
                 </p>
+                {notice.image ? (
+                  <div className="mt-4 overflow-hidden rounded-lg">
+                    <Image
+                      src={notice.image}
+                      alt={notice.title}
+                      width={500}
+                      height={700}
+                      className="w-full"
+                    />
+                  </div>
+                ) : null}
                 {notice.link ? (
                   <a
                     href={notice.link.href}
