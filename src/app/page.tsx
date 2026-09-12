@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Quadrant } from "./_components/Quadrant";
 import { SiteNav } from "./_components/SiteNav";
 import { SiteFooter } from "./_components/SiteFooter";
+import { BookFlyerViewer } from "./_components/BookFlyerViewer";
 import { bio } from "@/lib/profile";
 import { galleryImages } from "@/lib/gallery";
 
@@ -51,37 +52,7 @@ export default function Home() {
             </div>
 
             <div className="relative mx-auto w-full max-w-sm md:max-w-md">
-              <div className="relative aspect-[2/3] overflow-hidden bg-white shadow-[18px_20px_0_var(--color-autumn)]">
-                <Image
-                  src="/images/last-book-design.png"
-                  alt="《四季로 읽는 詩》 구매 안내 전단"
-                  fill
-                  sizes="(max-width: 768px) 40vw, 20vw"
-                  unoptimized
-                  priority
-                  className="object-contain"
-                />
-                <div className="pointer-events-none absolute inset-0 z-30" aria-label="구매 및 공식 홈페이지 링크">
-                  {bookstores.map((bookstore) => (
-                    <a
-                      key={bookstore.name}
-                      href={bookstore.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${bookstore.name}에서 시집 구매하기`}
-                      className="pointer-events-auto absolute top-[82.5%] block h-[7.5%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
-                      style={{ left: bookstore.left, width: bookstore.width }}
-                    />
-                  ))}
-                  <a
-                    href="https://www.kanggilwon.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="강길원 공식 홈페이지 방문하기"
-                    className="pointer-events-auto absolute left-[30%] top-[93%] block h-[6%] w-[40%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
-                  />
-                </div>
-              </div>
+              <BookFlyerViewer bookstores={bookstores} />
               <span className="absolute -bottom-8 -left-8 text-7xl font-light text-[var(--color-spring)]/60 md:-left-14 md:text-9xl">春</span>
               <span className="absolute -right-6 -top-10 text-7xl font-light text-[var(--color-summer)]/50 md:-right-12 md:text-9xl">冬</span>
             </div>
