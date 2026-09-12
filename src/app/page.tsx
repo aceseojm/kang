@@ -8,50 +8,102 @@ import { galleryImages } from "@/lib/gallery";
 
 export default function Home() {
   const previewImages = galleryImages.slice(0, 4);
+  const bookstores = [
+    { name: "YES24", href: "https://www.yes24.com/product/goods/196183862", left: "16.8%", width: "12.8%" },
+    { name: "교보문고", href: "https://product.kyobobook.co.kr/detail/S000221231674", left: "32.6%", width: "14.4%" },
+    { name: "영풍문고", href: "https://www.ypbooks.co.kr/books/202609086925600322", left: "49.6%", width: "14.2%" },
+    { name: "알라딘", href: "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=401731981", left: "66.2%", width: "14.2%" },
+  ];
 
   return (
     <main className="bg-[var(--color-ivory-end)] text-[var(--color-ink)]">
-      <section className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-6 text-center">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src="/images/main.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/25" />
+      <section className="relative min-h-dvh overflow-hidden bg-[var(--color-paper)] px-6 pb-10 pt-5 md:px-10 md:pb-12 md:pt-7">
+        <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:radial-gradient(var(--color-taupe)_0.6px,transparent_0.6px)] [background-size:8px_8px]" />
+        <div className="pointer-events-none absolute -right-28 top-24 h-80 w-80 rounded-full bg-[var(--color-summer)]/15 blur-3xl" />
+        <div className="pointer-events-none absolute -left-28 bottom-12 h-80 w-80 rounded-full bg-[var(--color-autumn)]/15 blur-3xl" />
 
-        <SiteNav
-          variant="dark"
-          showHome={false}
-          className="absolute inset-x-0 top-0 justify-center px-6 py-4 md:py-6"
-        />
+        <div className="relative mx-auto flex min-h-[calc(100dvh-3rem)] w-full max-w-6xl flex-col">
+          <div className="flex items-center justify-between border-b border-[color-mix(in_srgb,var(--color-ink)_15%,transparent)] pb-4">
+            <p className="text-xs tracking-[0.28em] text-[var(--color-taupe)] md:text-sm">
+              {bio.penName} {bio.hanja}
+            </p>
+            <SiteNav showHome={false} className="justify-end" />
+          </div>
 
-        <p className="relative text-xs tracking-[0.4em] text-white/80 md:text-sm">
-          {bio.penName} {bio.hanja}
-        </p>
-        <h1 className="relative mt-4 text-3xl tracking-widest text-white md:text-5xl">
-          {bio.name}
-        </h1>
-        <p className="relative mt-3 text-sm tracking-wide text-white/80 md:text-base">
-          {bio.role}
-        </p>
-        <blockquote className="relative mt-12 max-w-md text-lg leading-relaxed tracking-wide text-white md:max-w-xl md:text-2xl">
-          {bio.pullQuote}
-        </blockquote>
+          <div className="grid flex-1 items-center gap-12 py-14 md:grid-cols-[minmax(0,1fr)_minmax(19rem,0.8fr)] md:gap-20 md:py-16">
+            <div className="relative z-10 max-w-2xl">
+              <p className="text-xs font-medium tracking-[0.3em] text-[var(--color-autumn)] md:text-sm">
+                신간 시집 · 2026. 9. 13 발행
+              </p>
+              <h1 className="mt-7 text-[clamp(3rem,8vw,6.8rem)] leading-[1.05] tracking-[-0.04em]">
+                《四季로<br className="md:hidden" /> 읽는 詩》
+              </h1>
+              <p className="mt-8 max-w-lg text-lg leading-[1.9] tracking-wide md:text-2xl">
+                흐르는 계절 속에서,<br />다시, 사람을 읽는 詩
+              </p>
+              <p className="mt-8 max-w-md text-sm leading-8 text-[var(--color-taupe)] md:text-base">
+                봄은 설렘으로, 여름은 뜨거움으로,<br />
+                가을은 그리움으로, 겨울은 다시 희망으로.
+              </p>
+              <p className="mt-10 text-sm tracking-[0.25em] text-[var(--color-taupe)]">
+                염창 강길원 · 첫 시집
+              </p>
+            </div>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 md:bottom-12">
-          <svg
-            className="h-4 w-4 animate-bounce text-white/80"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M12 4v16m0 0l-6-6m6 6l6-6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+            <div className="relative mx-auto w-full max-w-sm md:max-w-md">
+              <div className="relative aspect-[2/3] overflow-hidden bg-[var(--color-ink)] shadow-[18px_20px_0_var(--color-autumn)]">
+                <Image
+                  src="/images/last-book-design.png"
+                  alt="《四季로 읽는 詩》 시집 홍보 이미지"
+                  fill
+                  sizes="(max-width: 768px) 80vw, 35vw"
+                  className="object-contain"
+                />
+                <div className="absolute inset-0" aria-label="구매 및 공식 홈페이지 링크">
+                  {bookstores.map((bookstore) => (
+                    <a
+                      key={bookstore.name}
+                      href={bookstore.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${bookstore.name}에서 시집 구매하기`}
+                      className="absolute top-[83.8%] z-20 block h-[5.8%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
+                      style={{ left: bookstore.left, width: bookstore.width }}
+                    />
+                  ))}
+                  <a
+                    href="https://www.kanggilwon.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="강길원 공식 홈페이지 방문하기"
+                    className="absolute left-[35%] top-[94.3%] z-20 block h-[4.2%] w-[30%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
+                  />
+                </div>
+              </div>
+              <span className="absolute -bottom-8 -left-8 text-7xl font-light text-[var(--color-spring)]/60 md:-left-14 md:text-9xl">春</span>
+              <span className="absolute -right-6 -top-10 text-7xl font-light text-[var(--color-summer)]/50 md:-right-12 md:text-9xl">冬</span>
+            </div>
+          </div>
+
+          <div className="border-t border-[color-mix(in_srgb,var(--color-ink)_15%,transparent)] pt-5">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <p className="text-xs tracking-[0.18em] text-[var(--color-taupe)]">온라인 서점에서 만나보세요</p>
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap md:justify-end">
+                {bookstores.map((bookstore) => (
+                  <a
+                    key={bookstore.name}
+                    href={bookstore.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-5 border border-[color-mix(in_srgb,var(--color-ink)_20%,transparent)] px-4 py-3 text-xs tracking-[0.12em] transition-colors hover:bg-[var(--color-ink)] hover:text-[var(--color-ivory-end)] sm:min-w-28"
+                  >
+                    {bookstore.name}
+                    <span aria-hidden="true" className="text-base transition-transform group-hover:translate-x-1">↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
