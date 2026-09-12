@@ -38,6 +38,7 @@ export function Quadrant({
           fill
           priority
           sizes="50vw"
+          unoptimized
           className="h-full w-full object-cover object-left transition-transform duration-700 ease-out group-hover:scale-105"
           style={{ objectPosition: "left center" }}
         />

@@ -32,11 +32,11 @@ export default function Home() {
 
           <div className="grid flex-1 items-center gap-12 py-14 md:grid-cols-[minmax(0,1fr)_minmax(19rem,0.8fr)] md:gap-20 md:py-16">
             <div className="relative z-10 max-w-2xl">
-              <p className="text-xs font-medium tracking-[0.3em] text-[var(--color-autumn)] md:text-sm">
+              <p className="text-xs font-bold tracking-[0.3em] text-[var(--color-autumn)] md:text-sm">
                 신간 시집 · 2026. 9. 13 발행
               </p>
-              <h1 className="mt-7 text-[clamp(3rem,8vw,6.8rem)] leading-[1.05] tracking-[-0.04em]">
-                《四季로<br className="md:hidden" /> 읽는 詩》
+              <h1 className="mt-7 whitespace-nowrap text-[clamp(1.92rem,5.12vw,4.352rem)] leading-[1.05] tracking-[-0.04em]">
+                《四季로 읽는 詩》
               </h1>
               <p className="mt-8 max-w-lg text-lg leading-[1.9] tracking-wide md:text-2xl">
                 흐르는 계절 속에서,<br />다시, 사람을 읽는 詩
@@ -45,21 +45,23 @@ export default function Home() {
                 봄은 설렘으로, 여름은 뜨거움으로,<br />
                 가을은 그리움으로, 겨울은 다시 희망으로.
               </p>
-              <p className="mt-10 text-sm tracking-[0.25em] text-[var(--color-taupe)]">
+              <p className="mt-10 text-sm font-bold tracking-[0.25em] text-[var(--color-taupe)]">
                 염창 강길원 · 첫 시집
               </p>
             </div>
 
             <div className="relative mx-auto w-full max-w-sm md:max-w-md">
-              <div className="relative aspect-[2/3] overflow-hidden bg-[var(--color-ink)] shadow-[18px_20px_0_var(--color-autumn)]">
+              <div className="relative aspect-[2/3] overflow-hidden bg-white shadow-[18px_20px_0_var(--color-autumn)]">
                 <Image
                   src="/images/last-book-design.png"
-                  alt="《四季로 읽는 詩》 시집 홍보 이미지"
+                  alt="《四季로 읽는 詩》 구매 안내 전단"
                   fill
-                  sizes="(max-width: 768px) 80vw, 35vw"
+                  sizes="(max-width: 768px) 40vw, 20vw"
+                  unoptimized
+                  priority
                   className="object-contain"
                 />
-                <div className="absolute inset-0" aria-label="구매 및 공식 홈페이지 링크">
+                <div className="pointer-events-none absolute inset-0 z-30" aria-label="구매 및 공식 홈페이지 링크">
                   {bookstores.map((bookstore) => (
                     <a
                       key={bookstore.name}
@@ -67,7 +69,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${bookstore.name}에서 시집 구매하기`}
-                      className="absolute top-[83.8%] z-20 block h-[5.8%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
+                      className="pointer-events-auto absolute top-[82.5%] block h-[7.5%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
                       style={{ left: bookstore.left, width: bookstore.width }}
                     />
                   ))}
@@ -76,7 +78,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="강길원 공식 홈페이지 방문하기"
-                    className="absolute left-[35%] top-[94.3%] z-20 block h-[4.2%] w-[30%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
+                    className="pointer-events-auto absolute left-[30%] top-[93%] block h-[6%] w-[40%] rounded-sm outline-offset-2 transition-colors hover:bg-[var(--color-autumn)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-autumn)]"
                   />
                 </div>
               </div>
@@ -87,7 +89,7 @@ export default function Home() {
 
           <div className="border-t border-[color-mix(in_srgb,var(--color-ink)_15%,transparent)] pt-5">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <p className="text-xs tracking-[0.18em] text-[var(--color-taupe)]">온라인 서점에서 만나보세요</p>
+              <p className="whitespace-nowrap text-xs tracking-[0.12em] text-[var(--color-taupe)] sm:tracking-[0.18em]">온라인 서점 및 오프라인 서점에서 만나보세요.</p>
               <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap md:justify-end">
                 {bookstores.map((bookstore) => (
                   <a
@@ -104,6 +106,44 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/images/main.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/25" />
+
+        <p className="relative text-xs tracking-[0.4em] text-white/80 md:text-sm">
+          {bio.penName} {bio.hanja}
+        </p>
+        <h2 className="relative mt-4 text-3xl tracking-widest text-white md:text-5xl">
+          {bio.name}
+        </h2>
+        <p className="relative mt-3 text-sm tracking-wide text-white/80 md:text-base">
+          {bio.role}
+        </p>
+        <blockquote className="relative mt-12 max-w-md text-lg leading-relaxed tracking-wide text-white md:max-w-xl md:text-2xl">
+          {bio.pullQuote}
+        </blockquote>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 md:bottom-12">
+          <svg
+            className="h-4 w-4 animate-bounce text-white/80"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M12 4v16m0 0l-6-6m6 6l6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </section>
 
@@ -149,6 +189,8 @@ export default function Home() {
                 alt={`${bio.name} 시인 초상`}
                 fill
                 sizes="(max-width: 768px) 7rem, 8rem"
+                unoptimized
+                loading="eager"
                 className="object-cover"
               />
             </div>
@@ -181,6 +223,8 @@ export default function Home() {
                   alt={img.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, 25vw"
+                  unoptimized
+                  loading="eager"
                   className="object-cover transition-transform duration-300 hover:scale-105"
                 />
               </span>

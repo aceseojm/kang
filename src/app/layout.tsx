@@ -9,9 +9,9 @@ const notoSerifKR = Noto_Serif_KR({
 });
 
 export const metadata: Metadata = {
-  title: "鹽倉 姜吉遠 | 나의 四季",
+  title: "《四季로 읽는 詩》 | 염창 강길원",
   description:
-    "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+    "염창 강길원의 첫 시집 《四季로 읽는 詩》. 흐르는 계절 속에서 다시 사람을 읽는 시.",
   keywords: [
     "강길원",
     "염창 강길원",
@@ -23,16 +23,14 @@ export const metadata: Metadata = {
     "나의 四季",
   ],
   openGraph: {
-    title: "鹽倉 姜吉遠 | 나의 四季",
-    description:
-      "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+    title: "《四季로 읽는 詩》 | 염창 강길원",
+    description: "2026년 9월 13일 발행. 염창 강길원의 첫 시집.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "鹽倉 姜吉遠 | 나의 四季",
-    description:
-      "강길원, 염창 강길원, 시인 강길원, (주)서진인스텍, (주)와이엠케이 관련 정보를 담은 공식 사이트입니다.",
+    title: "《四季로 읽는 詩》 | 염창 강길원",
+    description: "2026년 9월 13일 발행. 염창 강길원의 첫 시집.",
   },
 };
 
