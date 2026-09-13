@@ -18,6 +18,44 @@ export default function Home() {
 
   return (
     <main className="bg-[var(--color-ivory-end)] text-[var(--color-ink)]">
+      <section className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/images/main.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/25" />
+
+        <p className="relative text-xs tracking-[0.4em] text-white/80 md:text-sm">
+          {bio.penName} {bio.hanja}
+        </p>
+        <h2 className="relative mt-4 text-3xl tracking-widest text-white md:text-5xl">
+          {bio.name}
+        </h2>
+        <p className="relative mt-3 text-sm tracking-wide text-white/80 md:text-base">
+          {bio.role}
+        </p>
+        <blockquote className="relative mt-12 max-w-md text-lg leading-relaxed tracking-wide text-white md:max-w-xl md:text-2xl">
+          {bio.pullQuote}
+        </blockquote>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 md:bottom-12">
+          <svg
+            className="h-4 w-4 animate-bounce text-white/80"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M12 4v16m0 0l-6-6m6 6l6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      </section>
+
       <section className="relative min-h-dvh overflow-hidden bg-[var(--color-paper)] px-6 pb-10 pt-5 md:px-10 md:pb-12 md:pt-7">
         <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:radial-gradient(var(--color-taupe)_0.6px,transparent_0.6px)] [background-size:8px_8px]" />
         <div className="pointer-events-none absolute -right-28 top-24 h-80 w-80 rounded-full bg-[var(--color-summer)]/15 blur-3xl" />
@@ -77,44 +115,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden px-6 text-center">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src="/images/main.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/25" />
-
-        <p className="relative text-xs tracking-[0.4em] text-white/80 md:text-sm">
-          {bio.penName} {bio.hanja}
-        </p>
-        <h2 className="relative mt-4 text-3xl tracking-widest text-white md:text-5xl">
-          {bio.name}
-        </h2>
-        <p className="relative mt-3 text-sm tracking-wide text-white/80 md:text-base">
-          {bio.role}
-        </p>
-        <blockquote className="relative mt-12 max-w-md text-lg leading-relaxed tracking-wide text-white md:max-w-xl md:text-2xl">
-          {bio.pullQuote}
-        </blockquote>
-
-        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 md:bottom-12">
-          <svg
-            className="h-4 w-4 animate-bounce text-white/80"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M12 4v16m0 0l-6-6m6 6l6-6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
         </div>
       </section>
 

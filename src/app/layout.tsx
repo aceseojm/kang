@@ -10,8 +10,7 @@ const notoSerifKR = Noto_Serif_KR({
 
 export const metadata: Metadata = {
   title: "《四季로 읽는 詩》 | 염창 강길원",
-  description:
-    "염창 강길원의 첫 시집 《四季로 읽는 詩》. 흐르는 계절 속에서 다시 사람을 읽는 시.",
+  description: "강길원 시인, 기업인에서 이제는 시로 마음을 전합니다.",
   keywords: [
     "강길원",
     "염창 강길원",
@@ -24,13 +23,13 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "《四季로 읽는 詩》 | 염창 강길원",
-    description: "2026년 9월 13일 발행. 염창 강길원의 첫 시집.",
+    description: "강길원 시인, 기업인에서 이제는 시로 마음을 전합니다.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "《四季로 읽는 詩》 | 염창 강길원",
-    description: "2026년 9월 13일 발행. 염창 강길원의 첫 시집.",
+    description: "강길원 시인, 기업인에서 이제는 시로 마음을 전합니다.",
   },
 };
 

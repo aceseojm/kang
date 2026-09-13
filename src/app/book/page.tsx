@@ -3,7 +3,27 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "《四季로 읽는 詩》 구매 안내",
-  description: "염창 강길원 첫 시집 《四季로 읽는 詩》 구매 안내",
+  description: "2026년 9월 13일 염창 강길원의 첫시집, <사계로 읽는시>",
+  openGraph: {
+    title: "《四季로 읽는 詩》 구매 안내",
+    description: "2026년 9월 13일 염창 강길원의 첫시집, <사계로 읽는시>",
+    url: "https://www.kanggilwon.com/book",
+    type: "website",
+    images: [
+      {
+        url: "https://www.kanggilwon.com/images/last-book-design.png",
+        width: 1024,
+        height: 1536,
+        alt: "《四季로 읽는 詩》 구매 안내",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "《四季로 읽는 詩》 구매 안내",
+    description: "2026년 9월 13일 염창 강길원의 첫시집, <사계로 읽는시>",
+    images: ["https://www.kanggilwon.com/images/last-book-design.png"],
+  },
 };
 
 const bookstores = [
