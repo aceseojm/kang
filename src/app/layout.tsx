@@ -24,12 +24,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: "《四季로 읽는 詩》 | 염창 강길원",
     description: "강길원 시인, 기업인에서 이제는 시로 마음을 전합니다.",
+    url: "https://www.kanggilwon.com",
     type: "website",
+    images: [
+      {
+        url: "https://www.kanggilwon.com/images/back3.png",
+        width: 1672,
+        height: 941,
+        alt: "강길원 시인 홈페이지 영상 대표 이미지",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "《四季로 읽는 詩》 | 염창 강길원",
     description: "강길원 시인, 기업인에서 이제는 시로 마음을 전합니다.",
+    images: ["https://www.kanggilwon.com/images/back3.png"],
   },
 };
 
