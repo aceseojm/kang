@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.kanggilwon.com/images/last-book-design.png",
-        width: 1024,
-        height: 1536,
+        width: 992,
+        height: 1586,
         alt: "《四季로 읽는 詩》 구매 안내",
       },
     ],
