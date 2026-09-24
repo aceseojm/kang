@@ -9,6 +9,13 @@ export type Notice = {
 
 export const notices: Notice[] = [
   {
+    slug: "2026-추석-인사",
+    date: "2026.09.24",
+    title: "풍요로운 한가위 보내세요",
+    body: "가족들과 행복하고 풍요로운 추석 연휴 보내시길 바랍니다.",
+    image: "/images/thanksgiving-2026.png",
+  },
+  {
     slug: "출판기념회-초대",
     date: "2026.08.19",
     title: "《四季로 읽는 詩》 출판기념회에 초대합니다",
