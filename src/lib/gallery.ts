@@ -1,4 +1,4 @@
-export type GalleryCategory = "꽃" | "열매" | "풍경";
+export type GalleryCategory = "꽃" | "열매" | "풍경" | "기타";
 
 const categories: Record<string, GalleryCategory> = {
   "01": "꽃",
@@ -110,13 +110,13 @@ const categories: Record<string, GalleryCategory> = {
   "104": "열매",
   "105": "열매",
   // 2026-09-06 추가분
-  "106": "풍경",
+  "106": "기타", // 버들잎
   "107": "꽃",
   "108": "열매",
   "109": "열매",
   "110": "열매",
   "111": "꽃",
-  "112": "풍경",
+  "112": "기타", // 낙엽
   "113": "꽃",
   "114": "꽃",
   "115": "꽃",
@@ -128,7 +128,7 @@ const categories: Record<string, GalleryCategory> = {
   "121": "꽃",
   "122": "열매",
   "123": "열매",
-  "124": "풍경",
+  "124": "열매", // 대추
   "125": "꽃",
   "126": "꽃",
   "127": "꽃",
@@ -192,7 +192,7 @@ const categories: Record<string, GalleryCategory> = {
   "183": "풍경",
 };
 
-// 뽀미(반려견)가 함께 등장하는 사진 번호. 꽃/열매/풍경 분류와 별개로 붙는
+// 뽀미(반려견)가 함께 등장하는 사진 번호. 꽃/열매/풍경/기타 분류와 별개로 붙는
 // 태그라, 한 사진이 '꽃'이면서 동시에 '뽀미'일 수 있다.
 const pommiPhotos = new Set<string>([
   "32", // 공원 그루터기 위의 뽀미

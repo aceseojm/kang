@@ -18,6 +18,7 @@ const filters: { label: string; value: FilterValue }[] = [
   { label: "꽃", value: "꽃" },
   { label: "열매", value: "열매" },
   { label: "풍경", value: "풍경" },
+  { label: "기타", value: "기타" },
   { label: "뽀미", value: "뽀미" },
 ];
 
@@ -38,7 +39,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
 
     // 같은 카테고리 내에서 꽃이 열매보다 상위에 오도록 정렬
     if (filter === "전체") {
-      const categoryOrder: Record<GalleryCategory, number> = { "꽃": 0, "풍경": 1, "열매": 2 };
+      const categoryOrder: Record<GalleryCategory, number> = { "꽃": 0, "풍경": 1, "열매": 2, "기타": 3 };
       result = result.sort((a, b) => categoryOrder[a.category] - categoryOrder[b.category]);
     }
 
