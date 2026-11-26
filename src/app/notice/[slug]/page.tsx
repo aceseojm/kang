@@ -10,12 +10,21 @@ export function generateStaticParams() {
   return notices.map((notice) => ({ slug: notice.slug }));
 }
 
-export function generateMetadata({
+function decodeSlug(slug: string) {
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
+
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const notice = notices.find((item) => item.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const notice = notices.find((item) => item.slug === decodeSlug(slug));
   return {
     title: notice
       ? `${notice.title} | 나의 四季`
@@ -23,12 +32,14 @@ export function generateMetadata({
   };
 }
 
-export default function NoticeDetailPage({
+export default async function NoticeDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const notice = notices.find((item) => item.slug === params.slug);
+  const { slug } = await params;
+  const decodedSlug = decodeSlug(slug);
+  const notice = notices.find((item) => item.slug === decodedSlug);
 
   if (!notice) {
     notFound();
