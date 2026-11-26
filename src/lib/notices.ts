@@ -9,6 +9,13 @@ export type Notice = {
 
 export const notices: Notice[] = [
   {
+    slug: "전북대-경영학과-특강",
+    date: "2026.11.20",
+    title: "전북대학교 경영학과 특강 〈강소기업의 성공전략〉",
+    body: "전북대학교 경영학과 대상으로 〈강소기업의 성공전략〉을 주제로 특강을 진행했습니다.",
+    image: "/images/lecture-jeonbuk-2026-11-20.png",
+  },
+  {
     slug: "2026-추석-인사",
     date: "2026.09.24",
     title: "풍요로운 한가위 보내세요",

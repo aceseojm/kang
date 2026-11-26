@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { notices } from "@/lib/notices";
 import { ContactForm } from "./_components/ContactForm";
@@ -38,49 +37,43 @@ export default function NoticePage() {
           </p>
         ) : (
           <ul className="flex flex-col gap-8">
-            {notices.map((notice) => (
-              <li
-                key={notice.slug}
-                className="border-l-2 py-5 pl-5"
-                style={{ borderColor: "var(--color-autumn)" }}
-              >
-                <p
-                  className="text-xs tracking-widest"
-                  style={{ color: "var(--color-autumn)" }}
+            {notices.map((notice) => {
+              const preview =
+                notice.body.length > 70
+                  ? `${notice.body.slice(0, 70).replace(/\n/g, " ")}…`
+                  : notice.body.replace(/\n/g, " ");
+              return (
+                <li
+                  key={notice.slug}
+                  className="border-l-2 pl-5"
+                  style={{ borderColor: "var(--color-autumn)" }}
                 >
-                  {notice.date}
-                </p>
-                <h2 className="mt-2 text-base md:text-lg">{notice.title}</h2>
-                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-[var(--color-ink)]">
-                  {notice.body}
-                </p>
-                {notice.image ? (
-                  <div className="mt-4 overflow-hidden rounded-lg">
-                    <Image
-                      src={notice.image}
-                      alt={notice.title}
-                      width={500}
-                      height={700}
-                      className="w-full"
-                    />
-                  </div>
-                ) : null}
-                {notice.link ? (
-                  <a
-                    href={notice.link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 border px-4 py-2 text-xs tracking-widest transition-colors hover:text-[var(--color-cream,#fff)]"
-                    style={{
-                      borderColor: "var(--color-autumn)",
-                      color: "var(--color-autumn)",
-                    }}
+                  <Link
+                    href={`/notice/${notice.slug}`}
+                    className="block py-5 transition-opacity hover:opacity-70"
                   >
-                    {notice.link.label} →
-                  </a>
-                ) : null}
-              </li>
-            ))}
+                    <p
+                      className="text-xs tracking-widest"
+                      style={{ color: "var(--color-autumn)" }}
+                    >
+                      {notice.date}
+                    </p>
+                    <h2 className="mt-2 text-base md:text-lg">
+                      {notice.title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--color-taupe)]">
+                      {preview}
+                    </p>
+                    <span
+                      className="mt-3 inline-block text-xs tracking-widest"
+                      style={{ color: "var(--color-autumn)" }}
+                    >
+                      자세히 보기 →
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>
